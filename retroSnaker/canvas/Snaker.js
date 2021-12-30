@@ -1,0 +1,3 @@
+class Snaker{
+    constructor(){}
+}
