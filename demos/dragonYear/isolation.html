@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>isolation</title>
+    <style>
+      .container {
+        width: 800px;
+        height: 600px;
+        position: relative;
+        background: linear-gradient(#0aa0fe 0%, #baf5ff 55%, #ffffff 100%);
+      }
+      .sky {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        mix-blend-mode: multiply;
+        background-color: white;
+        background: url("./sky.jpg") no-repeat;
+        /* background-size: cover; */
+      }
+      .bird_outer {
+        width: 500px;
+        height: 500px;
+        position: relative;
+        isolation: isolate;
+      }
+
+      .bird {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: url("./bird.jpeg") no-repeat;
+        mix-blend-mode: multiply;
+        background-size: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sky"></div>
+      <div class="bird_outer">
+        <div class="bird"></div>
+      </div>
+    </div>
+  </body>
+</html>

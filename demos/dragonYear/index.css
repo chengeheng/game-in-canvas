@@ -1,0 +1,287 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "mizfont";
+  src: url("https://apifontaaa.51miz.com:8081/createfont/b1mZR3/woff?str=@9f99!@5e74!@5927!@5409!")
+    format("woff");
+}
+:root {
+  --w: 100px;
+  --h: 50px;
+  --color1: #fad2d0;
+  --color2: #ff0606;
+
+  --bg: linear-gradient(
+      30deg,
+      var(--color1) 0,
+      var(--color1) 30%,
+      transparent 30%
+    ),
+    linear-gradient(-30deg, var(--color1) 0, var(--color1) 30%, transparent 30%),
+    radial-gradient(
+      at center bottom,
+      var(--color2) 0%,
+      var(--color1) 2%,
+      var(--color1) 2%,
+      var(--color1) 6%,
+      var(--color2) 6%,
+      var(--color2) 8%,
+      var(--color1) 8%,
+      var(--color1) 12%,
+      var(--color2) 12%,
+      var(--color2) 15%,
+      var(--color1) 15%,
+      var(--color1) 19%,
+      var(--color2) 19%,
+      var(--color2) 23%,
+      var(--color1) 23%,
+      var(--color1) 28%,
+      var(--color2) 28%,
+      var(--color2) 32%,
+      var(--color1) 32%,
+      var(--color1) 37%,
+      var(--color2) 37%,
+      var(--color2) 42%,
+      var(--color1) 42%,
+      var(--color1) 48%,
+      var(--color2) 48%,
+      var(--color2) 54%,
+      var(--color1) 54%,
+      var(--color1) 61%,
+      var(--color2) 61%,
+      var(--color2) 70%,
+      var(--color1) 70%,
+      var(--color1) 100%
+    );
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* // 背景 */
+.container {
+  width: 900px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.cloud_box {
+  background: var(--bg);
+  background-size: var(--w) var(--h);
+  background-position: var(--w) var(--h);
+  border-radius: 12px;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.cloud_box svg {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.cloud_box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: var(--bg);
+  background-size: var(--w) var(--h);
+  background-position: calc(var(--w) / 2) calc(var(--h) / 2);
+  mix-blend-mode: darken;
+}
+
+/* // 龙图 */
+.dragonBox {
+  height: 400px;
+  width: 400px;
+  margin: 50px 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* mix-blend-mode: screen; */
+}
+/* 金箔纸背景 叠纸 */
+.noise {
+  height: 350px;
+  width: 350px;
+  position: absolute;
+  transform: rotate(45deg);
+  background-color: var(--color2);
+  mix-blend-mode: multiply;
+}
+/* // 画龙 */
+.dragon {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dragon svg {
+  width: 100%;
+  height: 100%;
+}
+.dragon svg path {
+  stroke-width: 60;
+  fill-opacity: 0;
+}
+.path1,
+.path2 {
+  stroke-dasharray: 20000;
+  stroke-dashoffset: 20000;
+}
+.path3 {
+  stroke-dasharray: 50000;
+  stroke-dashoffset: 50000;
+}
+
+.path4,
+.path5 {
+  stroke-dasharray: 10000;
+  stroke-dashoffset: 10000;
+}
+.animation {
+  animation: line 6s linear forwards, fill 2s linear forwards 6s;
+}
+@keyframes line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fill {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+.zi {
+  position: absolute;
+  display: flex;
+  /*   border:1px solid red; */
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  font-family: mizfont;
+  font-size: 180px;
+  isolation: isolate;
+}
+
+.zisvg {
+  position: absolute;
+  display: block;
+  width: 200px;
+  height: 200px;
+  scale: 0;
+  margin: 0 auto;
+  animation: zianimation 1s linear forwards;
+  stroke: #ef8300;
+  stroke-width: 4;
+}
+.long {
+  left: 50px;
+  top: 50px;
+  animation-delay: 8s;
+}
+
+.nian {
+  left: 50px;
+  bottom: 50px;
+  animation-delay: 9s;
+}
+.da {
+  right: 50px;
+  top: 50px;
+  animation-delay: 10s;
+}
+.ji {
+  right: 50px;
+  bottom: 50px;
+  animation-delay: 11s;
+}
+
+@keyframes zianimation {
+  0% {
+    scale: 0;
+    /* tranform: scale(0) */
+  }
+  70% {
+    scale: 1.5;
+    /* tranform: scale(1.5) */
+  }
+  100% {
+    scale: 1;
+    /* tranform: scale(1) */
+  }
+}
+.gai {
+  height: 600px;
+  width: 900px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  mix-blend-mode: multiply;
+}
+/* 彩虹 */
+.rainbow {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 40px;
+  left: 415px;
+  /* margin-left: -40px; */
+  border-radius: 80px 0 0 0;
+  box-shadow: #fb323c -2px -2px 0 2px, #f99716 -4px -4px 0 4px,
+    #fee124 -6px -6px 0 6px, #afde2e -8px -8px 0 8px, #6ad7f8 -10px -10px 0 10px,
+    #60b1f5 -12px -12px 0 12px, #a3459b -14px -14px 0 14px;
+  animation: rainbow 5s ease-in-out infinite;
+  transform: rotate(40deg);
+}
+
+@keyframes rainbow {
+  50% {
+    transform: rotate(50deg);
+  }
+}
+.rainbow::after {
+  content: "";
+  width: 120px;
+  height: 15px;
+  position: absolute;
+  bottom: -23px;
+  left: 17px;
+  background: #000;
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: rainbow_shadow 5s ease-in-out infinite;
+  transform: rotate(-40deg);
+  transform-origin: 50% 50%;
+}
+
+@keyframes rainbow_shadow {
+  50% {
+    transform: rotate(-50deg) translate(10px) scale(0.7);
+    opacity: 0.05;
+  }
+}
